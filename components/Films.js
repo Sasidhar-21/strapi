@@ -8,7 +8,7 @@ const Films = ({ films }) => {
           films.data.map((film) => {
             return (
               <li key={film.id}>
-               <Link href={`film/` + film.attributes.slug.concat(film.id) }>
+              <Link href={`film/` + film.id }>
                {film.attributes.title}
                 </Link>
               </li>
@@ -28,4 +28,7 @@ export default Films;
                 <a href={`film/` + film.id}>{film.attributes.title}</a>
                 */
                //{film.attributes.title}
+
+
+               //<Link href={`film/` + film.attributes.slug.concat(film.id) }></Link>
 

@@ -3,13 +3,15 @@ import { fetcher } from '../../lib/api';
 
 
 const Film = ({ film }) => {
-
+    console.log(film)
     return (
-
+        
           <Layout>
+
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter mb-4">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400 py-2">
-                    {film.attribute.title}
+                    {film.attributes.title}
+                    
                 </span>
             </h1>
         </Layout>
@@ -20,8 +22,8 @@ const Film = ({ film }) => {
 
 export async function getServerSideProps({ params }) {
     const { slug } = params;
-    const filmResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/slugify/slugs/film/${slug}?populate=*`);
-    console.log(slug)
+    const filmResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/films/${slug}`);
+    //console.log(slug)
     return{
         props: {
             film: filmResponse.data,
